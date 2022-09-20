@@ -123,7 +123,7 @@ class PlaceExplorer:
             self.drop_duplicates()
             self.register_searched_area(i, j, radius)
             self.show_grid_done()
-            self.show_centers()
+            #self.show_centers()
             self.save()
             if np.sum(self.grid_done == 0.0) == 0:
                 break
