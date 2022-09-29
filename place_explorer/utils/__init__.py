@@ -1,2 +1,4 @@
 from place_explorer.utils.concat_reviews import concat_reviews
 from place_explorer.utils.get_reviews import get_reviews
+from place_explorer.utils.add_detailed_infos import add_detailed_infos
+

@@ -72,5 +72,5 @@ def concat_reviews(directory_path):
             if key in info[0].keys():
                 df[key] = info[0][key]
         dfs.append(df)
-    return pd.concat(dfs, axis=0)
+    return pd.concat(dfs, axis=0).set_index("review_id")
 
