@@ -43,7 +43,7 @@ def add_detailed_infos(csv_path, detailed_csv_path, outscraper_api_key):
     df = pd.read_csv(csv_path)
     infos = []
     for idx, series in tqdm(df.iterrows(), total=len(df)):
-        for _ in range(5):
+        for i in range(3):
             try:
                 place_id = series["place_id"]
                 info = get_info(place_id, outscraper_client)
@@ -52,8 +52,9 @@ def add_detailed_infos(csv_path, detailed_csv_path, outscraper_api_key):
                 time.sleep(1)
                 break
             except IndexError:
-                print("list index out of range")
-                print(idx)
-                print(series)
+                if i == 2:
+                    print("list index out of range")
+                    print(idx)
+                    print(series)
                 time.sleep(10)
                 continue

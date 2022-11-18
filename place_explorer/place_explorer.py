@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
+from IPython.display import clear_output
+# from tqdm import tqdm
 
 
 class PlaceExplorer:
@@ -94,17 +96,20 @@ class PlaceExplorer:
     def __call__(self, max_radius=100000):
         latitude = self.latitude
         longitude = self.longitude
+        # pbar = tqdm(total=self.grid_done.shape[0]*self.grid_done.shape[1])
         while True:
-            print("get_next_indices")
+            # print("get_next_indices")
             i, j = self.get_next_indices()
             latitude, longitude = self.get_next_location()
-            print(latitude, longitude)
-            print("get_infos_nearby")
+            # print(latitude, longitude)
+            # print("get_infos_nearby")
             radius = self.get_next_radius()
             while True:
-                print(f"radius:　{radius}")
+                # print(f"radius:　{radius}")
                 infos = self.get_infos_nearby(latitude, longitude, radius)
-                print(f"len: {len(infos)}")
+                print(f"radius:　{radius}, len: {len(infos)}")
+                # pbar.set_postfix({"radius":radius, "num_places":len(infos)})
+                # pbar.refresh()
                 if len(infos) == 60:
                     radius *= 0.8
                 elif len(infos) < 20:
@@ -113,17 +118,22 @@ class PlaceExplorer:
                     break
                 if radius >= max_radius:
                     radius = max_radius
-                    print(f"radius:　{radius}")
+                    # print(f"radius:　{radius}")
                     infos = self.get_infos_nearby(latitude, longitude, radius)
-                    print(f"len: {len(infos)}")
+                    print(f"radius:　{radius}, len: {len(infos)}")
+                    # pbar.set_postfix({"radius":radius, "num_places":len(infos)})
+                    # pbar.refresh()
                     break
 
             self.log.append({'radius':radius, 'latitude':latitude, 'longitude':longitude})
             self.infos.extend(infos)
             self.drop_duplicates()
             self.register_searched_area(i, j, radius)
+            clear_output()
             self.show_grid_done()
-            #self.show_centers()
+            # pbar.n = np.count_nonzero(self.grid_done)
+            # pbar.refresh()
+            # self.show_centers()
             self.save()
             if np.sum(self.grid_done == 0.0) == 0:
                 break

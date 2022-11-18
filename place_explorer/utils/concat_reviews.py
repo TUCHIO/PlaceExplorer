@@ -30,7 +30,7 @@ keys = [
     # "located_google_id",
     "category",
     "subtypes",
-    "posts",
+    # "posts",
     # "reviews_tags",
     "rating",
     "reviews",
@@ -65,12 +65,15 @@ def concat_reviews(directory_path):
     jsons = glob.glob(os.path.join(directory_path, "*.json"))
     dfs = []
     for file in jsons:
-        with open(file, "rt") as f:
-            info = json.load(f)
-        df = pd.DataFrame.from_dict(info[0]["reviews_data"])
-        for key in keys:
-            if key in info[0].keys():
-                df[key] = info[0][key]
-        dfs.append(df)
+        try:
+            with open(file, "rt") as f:
+                info = json.load(f)
+            df = pd.DataFrame.from_dict(info[0]["reviews_data"])
+            for key in keys:
+                if key in info[0].keys():
+                    df[key] = info[0][key]
+            dfs.append(df)
+        except Exception as e:
+            print(f"Error occured while reading {file}: {e}")
     return pd.concat(dfs, axis=0).set_index("review_id")
 
