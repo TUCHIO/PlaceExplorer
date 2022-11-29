@@ -10,6 +10,12 @@ Google Maps API Key is necessary to run the program.
 The users firstly set three parameters: a center point (Latitude and Longitude) , a radius (m) from the center, and a grid size (m) as the smallest unit of search within the radius. 
 Creating a pickle file is recommended to save the data at the time of interruption and restart.
 
+#### API Key
+You have to place a json file which includes following API Keys at `./examples/api_key.json`.
+```json
+{"google_api_key": "YOUR_GOOGLE_API_KEY", "outscraper_api_key": "YOUR_OUTSCRAPER_API_KEY"}
+```
+
 ### Example Notebooks
 #### [Basic usage of PE](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/basic_usage.ipynb)
 
