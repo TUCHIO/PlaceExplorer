@@ -27,13 +27,13 @@ The size of bubble does not match the actual searched area, but it shows relativ
 #### [Recommended usage of PE](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/recommended_usage.ipynb)
 By utilizing (Outscraper)[https://outscraper.com/], you can get the review number information of each place. It enables you to plot large and small bubbles on a map based on the number of reviews in a search area. In addition, you will be able to get all reviews of all places in the searched area and download them in csv file. 
 
-Here is the sample image. Places are concentrated in the only town on Easter Island. The large red bubbles are World Heritage Sites on the Island where many people visited and posted the reviews. The vertical bar on the right shows the approximate number of reviews. It is scaled up to a maximum of 50, which is the square root of the actual number of reviews. Thus these large red bubbles are equal to about 1600〜2500 reviews there.
+Here is the sample image. Places are concentrated in the only town on Easter Island. The large red bubbles are World Heritage Sites on the Island where many people visited and posted the reviews. The vertical bar on the right shows the square root of the actual review numbers for each place. Thus these large red bubbles are equal to about 1600〜2500 reviews there.
 
 ![Easterisland_Map](https://user-images.githubusercontent.com/108068990/203985845-89fe54b9-46b1-4103-a678-d27e9708f74d.png)
 
 
 #### [Exploring multiple areas](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/explore_multiple_areas.ipynb)
-Here are some applied uses: PE allows you to explore and compare multiple locations.
+Here is an applied use: PE allows you to explore and compare multiple areas. The search results will be merged into one csv file.
 
 ![newplot (6)](https://user-images.githubusercontent.com/108068990/203986093-5b9c6ffb-705f-4a7c-b043-a377de53f4f4.png)
 
