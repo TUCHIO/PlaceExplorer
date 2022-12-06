@@ -23,7 +23,7 @@
 ![Setting_budget_amount](https://user-images.githubusercontent.com/108068990/205912721-ea280837-82cf-4310-9a65-a8cf4e72d264.png)
 
 ### Set maximum API usage
-1. Go to [Quotas](https://console.cloud.google.com/google/maps-apis/quotas)
+1. Go to [Quotas](https://console.cloud.google.com/google/maps-apis/quotas).
 2. Expand "Requests".
 3. Set your limit of requests. An example setting is as follows.
 
