@@ -15,6 +15,7 @@ You have to place a json file which includes following API Keys at `./examples/a
 ```json
 {"google_api_key": "YOUR_GOOGLE_API_KEY", "outscraper_api_key": "YOUR_OUTSCRAPER_API_KEY"}
 ```
+An easy start for Google Colaboratory user is [here](./docs/start_with_Google_Colaboratory.md). 
 
 ### Example Notebooks
 #### [Basic usage of PE](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/basic_usage.ipynb)

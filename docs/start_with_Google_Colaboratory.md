@@ -10,7 +10,9 @@
 ### Restrict Your API Key
 1. Go to [Credential](https://console.cloud.google.com/google/maps-apis/credentials).
 2. Click your API name.
-3. Set key restrictions. Be sure to read [Google's Official document for key restriction](https://cloud.google.com/docs/authentication/api-keys?hl=en_US&_ga=2.22971646.-472611623.1669725235&_gac=1.89610601.1669726477.Cj0KCQiA-JacBhC0ARIsAIxybyMaLd8m16G73pFt7nddHkzexDaFyzTNlFoUgyEOYRtX839nPn1C864aAojmEALw_wcB#securing_an_api_key). 
+3. Set key restrictions. An example setting is as follows. Be sure to read [Google's Official document for key restriction](https://cloud.google.com/docs/authentication/api-keys?hl=en_US&_ga=2.22971646.-472611623.1669725235&_gac=1.89610601.1669726477.Cj0KCQiA-JacBhC0ARIsAIxybyMaLd8m16G73pFt7nddHkzexDaFyzTNlFoUgyEOYRtX839nPn1C864aAojmEALw_wcB#securing_an_api_key). 
+
+![Setting_API_restriction](https://user-images.githubusercontent.com/108068990/207311108-eb0fd818-19b5-43a5-8571-86ffccb31ec3.png)
 
 ### Create budgets and budget alerts
 1. Go to [Budget and Alert](https://console.cloud.google.com/billing/).
