@@ -56,7 +56,7 @@ def add_detailed_infos(csv_path, detailed_csv_path, outscraper_api_key, language
                 place_id = series["place_id"]
                 info = get_info(place_id, outscraper_client, language=language)
                 infos.append(info)
-                pd.DataFrame(infos).to_csv(detailed_csv_path)
+                pd.DataFrame(infos).to_csv(detailed_csv_path, index=False)
                 time.sleep(1)
                 break
             except IndexError:
