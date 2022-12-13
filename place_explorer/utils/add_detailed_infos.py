@@ -1,3 +1,4 @@
+import os
 import time
 
 import googlemaps
@@ -8,12 +9,12 @@ import pandas as pd
 import plotly.express as px
 from tqdm import tqdm
 
-def get_info(place_id, outscraper_client):
+def get_info(place_id, outscraper_client, language="en"):
     url = f"https://www.google.com/maps/place/?q=place_id:{place_id}"
     responses = outscraper_client.google_maps_reviews(
         url,
         sort="newest",
-        language="ja",
+        language=language,
         reviewsLimit=1,
     )
     # print(responses[0])
@@ -38,15 +39,22 @@ def get_info(place_id, outscraper_client):
             "rating": None,
         }
     
-def add_detailed_infos(csv_path, detailed_csv_path, outscraper_api_key):
+def add_detailed_infos(csv_path, detailed_csv_path, outscraper_api_key, language="en"):
     outscraper_client = outscraper.ApiClient(outscraper_api_key)
     df = pd.read_csv(csv_path)
-    infos = []
+    if os.path.isfile(detailed_csv_path):
+        infos = pd.read_csv(detailed_csv_path).to_dict("records")
+    else:
+        infos = []
+    place_ids_done = [info["place_id"] for info in infos]
+        
     for idx, series in tqdm(df.iterrows(), total=len(df)):
+        if series["place_id"] in place_ids_done:
+            continue
         for i in range(3):
             try:
                 place_id = series["place_id"]
-                info = get_info(place_id, outscraper_client)
+                info = get_info(place_id, outscraper_client, language=language)
                 infos.append(info)
                 pd.DataFrame(infos).to_csv(detailed_csv_path)
                 time.sleep(1)
