@@ -2,13 +2,10 @@
 ## Explore registered locations on Google Maps
 
 ### About
-“PlaceExplorer” is Python-based program for web scraping. PE provides automatic collection of information on registered locations on Google Maps. The acquired information contains the Place ID, latitude, longitude, review numbers, and rating from each of locations within the specified area.
-The purpose is to enable you to get the information of all places in an area where you want to search because Google API allows you to fetch only 60 places at random in the area.
+"PlaceExplorer" is a Python-based program that facilitates web scraping. It automatically collects information on registered locations from Google Maps, including the Place ID, latitude, longitude, review numbers, and rating of each location within a specified area. This allows users to obtain information on all places within an area of interest, as Google API only allows fetching of 60 randomly selected places.
 
 ### Preparation
-Google Maps API Key is necessary to run the program. 
-The users firstly set three parameters: a center point (Latitude and Longitude) , a radius (m) from the center, and a grid size (m) as the smallest unit of search within the radius. 
-Creating a pickle file is recommended to save the data at the time of interruption and restart.
+To run the program, a Google Maps API key is required. The user must first specify three parameters: a center point (latitude and longitude), a radius (in meters) from the center, and a grid size (in meters) that represents the smallest unit of search within the radius. To prevent data loss in case of interruption, it is recommended to create a pickle file for saving the data.
 
 #### API Key
 You have to place a json file which includes following API Keys at `./examples/api_key.json`.
@@ -20,21 +17,20 @@ An easy start for Google Colaboratory user is [here](./docs/start_with_Google_Co
 ### Example Notebooks
 #### [Basic usage of PE](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/basic_usage.ipynb)
 
-It searches all places on Google Maps within the specified area (radius) from the center (latitude and longitude).
-Here is an animation of the exploring process
+The program searches for all places within the specified radius from the center (latitude and longitude) on Google Maps. An animation of the exploring process is available.
 
 https://user-images.githubusercontent.com/108068990/203982433-69a83d6f-6512-4d95-8dd8-0700e244ca56.mp4
 
-PE crawls within the area for search from center to center. The search range will expand until at least 20 places are detected. So it tends to be large circles in uninhabited areas. Conversely, the search range will be shrank to 60 or less places where many places are densely located, such as urban areas.
+PE searches within the specified area by crawling from center to center. The search range will expand until at least 20 places are detected. As a result, large circles may be generated in uninhabited areas. Conversely, the search range will be narrowed to 60 or fewer places in densely populated areas, such as urban areas.
 
 ![show_centers](https://user-images.githubusercontent.com/108068990/203982670-a654f8ed-af4f-4a6a-b561-67310e87ae30.png)
 
-The size of bubble does not match the actual searched area, but it shows relative radius (the bigger the wider, the smaller the narrower). 
+Note that the size of the bubble displayed in the animation does not correspond to the actual searched area, but instead represents the relative radius (i.e., the bigger the bubble, the wider the search range, and the smaller the bubble, the narrower the search range).
 
 #### [Recommended usage of PE](https://github.com/TUCHIO/PlaceExplorer/blob/main/examples/recommended_usage.ipynb)
-By utilizing [Outscraper](https://outscraper.com/), you can get the review number information of each place. It enables you to plot large and small bubbles on a map based on the number of reviews in a search area. In addition, you will be able to get all reviews of all places in the searched area and download them in csv file. 
+By utilizing [Outscraper](https://outscraper.com/), users can obtain review number information for each place. This enables the program to plot large and small bubbles on a map based on the number of reviews within the search area. Moreover, users can access all reviews for each place in the searched area and download them in a CSV file.
 
-Here is the sample image. Places are concentrated in the only town on Easter Island. The large red bubbles are World Heritage Sites on the Island where many people visited and posted the reviews. The vertical bar on the right shows the square root of the actual review numbers for each place. Thus these large red bubbles are equal to about 1600〜2500 reviews there.
+The sample image shows a concentration of places in the only town on Easter Island. The large red bubbles represent World Heritage Sites on the island that have received many visitors and reviews. The vertical bar on the right displays the square root of the actual review numbers for each place. As a result, the large red bubbles correspond to approximately 1600-2500 reviews.
 
 ![Easterisland_Map](https://user-images.githubusercontent.com/108068990/203985845-89fe54b9-46b1-4103-a678-d27e9708f74d.png)
 
