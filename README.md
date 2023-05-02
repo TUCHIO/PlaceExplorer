@@ -4,6 +4,30 @@
 ### About
 "PlaceExplorer" is a Python-based program that facilitates web scraping. It automatically collects information on registered locations from Google Maps, including the Place ID, latitude, longitude, review numbers, and rating of each location within a specified area. This allows users to obtain information on all places within an area of interest, as Google API only allows fetching of 60 randomly selected places.
 
+### Installation
+
+Follow these steps to clone and install the PlaceExplorer project:
+
+1. Open a terminal window and navigate to the directory where you want to clone the repository.
+
+2. Clone the GitHub repository by running the following command:
+
+```bash
+git clone https://github.com/TUCHIO/PlaceExplorer.git
+```
+
+3. Change into the newly created PlaceExplorer directory:
+
+```bash
+cd PlaceExplorer
+```
+
+4. Install the project using pip:
+
+```bash
+pip install .
+```
+
 ### Preparation
 To run the program, a Google Maps API key is required. The user must first specify three parameters: a center point (latitude and longitude), a radius (in meters) from the center, and a grid size (in meters) that represents the smallest unit of search within the radius. To prevent data loss in case of interruption, it is recommended to create a pickle file for saving the data.
 
