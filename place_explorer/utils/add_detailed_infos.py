@@ -15,7 +15,7 @@ def get_info(place_id, outscraper_client, language="en"):
         url,
         sort="newest",
         language=language,
-        reviewsLimit=1,
+        review_limit=1,
     )
     # print(responses[0])
     try:
